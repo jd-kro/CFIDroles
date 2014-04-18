@@ -1,9 +1,10 @@
-﻿<%@ Page Title="Register" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Register.aspx.vb" Inherits="Account_Register" %>
+﻿<%@ Page Title="New User Regististration" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Register.aspx.vb" Inherits="Account_Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1><%: Page.Title %>.</h1>
-        <h2>Use the form below to create a new account.</h2>
+     <center>
+      <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo-login-page.jpg" />
+      <hgroup class="title">
+        <h1><%: Title %></h1>
     </hgroup>
 
     <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser">
@@ -51,6 +52,22 @@
                                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                                      CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
                             </li>
+                               <li>
+                                   <asp:Label runat="server" ID="lblRole" />
+                                   <a>Editor Role </a>
+                                   <asp:CheckBox runat="server" ID="TextBox1" TextAlign="Right" />
+                                   <br />
+                                   <a>Commentor Role </a>
+                                   <asp:CheckBox runat="server" ID="Checkbox1" TextAlign="Right" />
+                                   <br />
+                                      <a>Administrator Role </a>
+                                   <asp:CheckBox runat="server" ID="Checkbox2" TextAlign="Right" />
+                                   <br />
+                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ConfirmPassword"
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The confirm password field is required." />
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                            </li>
                         </ol>
                         <asp:Button runat="server" CommandName="MoveNext" Text="Register" />
                     </fieldset>
@@ -59,4 +76,5 @@
             </asp:CreateUserWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
+         </center>
 </asp:Content>
